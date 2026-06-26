@@ -15,9 +15,9 @@ No test suite. Build success = valid. Run `npm run build` before opening a PR.
 
 ## Project Context
 
-**Xindeler** is an open-source fantasy MMORPG built on the Veloren engine (Rust).
+**Xindeler** is an open-source fantasy MMORPG built in Rust.
 
-This repo (`Matute289/xindeler-documentation`) is the **technical documentation portal** — for developers, contributors, designers, and DevOps. Planned URL: `docs.xindeler.greenmountain.dev` (VPS deploy pending — see backlog task 003).
+This repo (`Matute289/xindeler-documentation`) is the **technical documentation portal** — for developers, contributors, designers, and DevOps. Live at: `docs.xindeler.greenmountain.dev`.
 
 ### Related repos
 
@@ -26,7 +26,7 @@ This repo (`Matute289/xindeler-documentation`) is the **technical documentation 
 | `Matute289/xindeler-design` | **Private** | Source of truth for all lore, game design specs, ORACLE/AURORA specs |
 | `Matute289/xindeler-web-landing` | Public | Landing page (`xindeler.greenmountain.dev`) |
 | `Matute289/xindeler-wiki` | Public | Player wiki (`wiki.xindeler.greenmountain.dev`) |
-| `Matute289/xindeler` | Public | Game engine (Veloren fork) |
+| `Matute289/xindeler` | Public | Game engine |
 | `Matute289/xindeler-documentation` | Public | This repo — technical docs portal |
 
 **ORACLE and AURORA specs live in `xindeler-design`.** Before writing docs for those systems, read:
@@ -62,10 +62,12 @@ This repo (`Matute289/xindeler-documentation`) is the **technical documentation 
 
 Same as the other Xindeler repos:
 - `main` is protected — no direct pushes (branch protection rule in GitHub)
-- All changes go through PRs (`feat/...`, `fix/...`, `chore/...`)
+- All changes go through PRs (`feat/...`, `fix/...`, `chore/...`, `docs/...`)
 - PRs require 1 approval before merging
 - CI: `pr-check.yml` must pass (job: `validate`)
 - CD: `deploy.yml` rsync to VPS on merge to main
+
+**Convention (learned from practice):** When working on a batch of related content, do everything on a single branch with incremental commits, then open one PR. Multiple branches for related work causes rebase conflicts as PRs merge into main.
 
 ---
 
@@ -162,7 +164,7 @@ docs/
 │   └── contratos.md           → ORACLE↔AURORA: WorldFact read-only contract
 │
 ├── apis/                      → Protocols and APIs
-│   ├── veloren-protocol.md    → Binary game protocol (NOT REST), Quinn/QUIC
+│   ├── game-protocol.md       → Binary game protocol (NOT REST), Quinn/QUIC
 │   ├── fastapi-web.md         → REST: /api/waitlist, /api/contribute, /api/status
 │   ├── admin-commands.md      → Full admin command reference
 │   └── telemetria.md          → TelemetryLayer JSONL, BoundedWriter
@@ -199,10 +201,10 @@ The server is **one Rust process**, not microservices. There is no Login Server,
 - A seam to RocksDB/SQLite/PostgreSQL is designed but not v1
 
 ### 3. No REST API or WebSocket for the game
-- Game communication: **Veloren binary protocol** over TCP/QUIC (Quinn library)
+- Game communication: **binary protocol** over TCP/QUIC (Quinn library)
 - The only REST API is FastAPI (port 8010): waitlist, contributors, status
 - ORACLE/AURORA are controlled via server chat admin commands
-- No WebSocket; real-time communication is via the Veloren protocol
+- No WebSocket; real-time communication is via the binary game protocol
 
 ### 4. ORACLE and AURORA are the most complex systems
 - Both run as extensions of `rtsim` within the server process
@@ -214,8 +216,8 @@ The server is **one Rust process**, not microservices. There is no Login Server,
 ## VPS / Deploy
 
 - **Server:** `ssh -i ~/.ssh/id_ed25519 mgrinberg@216.238.126.97`
-- **Deploy path:** `/srv/xindeler/docs/` (to be created — see backlog task 003)
-- **Subdomain:** `docs.xindeler.greenmountain.dev` (nginx config pending)
+- **Deploy path:** `/srv/xindeler/docs/public`
+- **Subdomain:** `docs.xindeler.greenmountain.dev` (live — certbot configured)
 - **Reference:** See `xindeler-web-landing/deploy.yml` and the wiki deploy for the rsync pattern
 
 ### GitHub Secrets needed
@@ -224,7 +226,7 @@ The server is **one Rust process**, not microservices. There is no Login Server,
 | `VPS_HOST` | Already in Matute289 GitHub org |
 | `VPS_USER` | mgrinberg |
 | `VPS_SSH_KEY` | Same key as xindeler-web-landing uses |
-| `VPS_DEPLOY_PATH` | `/srv/xindeler/docs/` |
+| `VPS_DEPLOY_PATH` | `/srv/xindeler/docs/public` |
 
 ---
 
@@ -234,15 +236,28 @@ The server is **one Rust process**, not microservices. There is no Login Server,
 |--------|------|--------|
 | 1 | 001 Setup Docusaurus + tema | `[x]` Completo |
 | 1 | 002 GitHub Actions CI/CD | `[x]` Completo |
-| 1 | 003 VPS nginx config | `[ ]` Pendiente |
-| 1 | 004 i18n ES + EN | `[ ]` Pendiente |
-| 2 | 005 instalacion-local.md | `[ ]` Pendiente |
-| 2 | 006 arquitectura.md | `[ ]` Pendiente |
-| 2 | 007 contribucion esencial | `[ ]` Pendiente |
-| 3 | 008–010 Sistemas de juego + guías | `[ ]` Pendiente |
-| 4 | 011–013 ORACLE docs | `[ ]` Pendiente |
-| 5 | 014–016 AURORA docs | `[ ]` Pendiente |
-| 6 | 017–020 Referencia completa | `[ ]` Pendiente |
+| 1 | 003 VPS nginx config + certbot | `[x]` Completo |
+| 1 | 004 i18n ES + EN | `[x]` Completo |
+| 2 | 005 instalacion-local.md | `[x]` Completo |
+| 2 | 006 arquitectura.md | `[x]` Completo |
+| 2 | 007 contribucion esencial | `[x]` Completo |
+| 3 | 008–009 Sistemas de juego (combate, magia, clases) | `[ ]` Pendiente — defer |
+| 3 | 010 contribucion guías (agregar-npc/hechizo/item/criatura) | `[x]` Completo |
+| 4 | 011 oracle/intro | `[x]` Completo |
+| 4 | 012–013 ORACLE profundo | `[ ]` Pendiente — defer hasta spec final |
+| 5 | 014 aurora/intro | `[x]` Completo |
+| 5 | 015–016 AURORA profundo | `[ ]` Pendiente — defer hasta spec final |
+| 6 | 017 Cliente (voxygen, render, UI, audio) | `[ ]` Pendiente — defer |
+| 6 | 018 Servidor (world-sim, admin-commands, arquitectura) | `[x]` Completo |
+| 6 | 019 APIs (game-protocol) | `[x]` Completo |
+| 6 | 020 Referencia (asset-formats, ecs-components, glosario) | `[x]` Completo |
+
+**Extra completado (fuera de backlog original):**
+- Homepage reescrita con tabla de navegación, quick start, links a repos
+- proyecto/tecnologias.md, proyecto/estructura-de-archivos.md, proyecto/persistencia.md
+- servidor/persistencia.md
+- TRANSLATING.md — guía de workflow de traducción
+- Eliminadas todas las referencias públicas a "Veloren" en docs/
 
 Full detail in `.backlog/backlog.md` and `.backlog/tasks/`.
 
@@ -250,6 +265,4 @@ Full detail in `.backlog/backlog.md` and `.backlog/tasks/`.
 
 ## Landing Page Integration
 
-When `docs.xindeler.greenmountain.dev` is live and confirmed working on the VPS, the owner (Matías) will notify and a link should be added to `xindeler-web-landing` — specifically in `src/components/CommunitySection.jsx` (where the Discord, Wiki, and other community links live).
-
-Do NOT add the link to the landing until the docs site is confirmed live.
+`docs.xindeler.greenmountain.dev` is live. When Matías confirms it's working correctly, add a link in `xindeler-web-landing` → `src/components/CommunitySection.jsx` (where the Discord, Wiki, and other community links live).
