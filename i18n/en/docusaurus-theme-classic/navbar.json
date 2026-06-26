@@ -1,10 +1,10 @@
 {
   "title": {
-    "message": "X'Indeler Docs",
+    "message": "Xindeler Docs",
     "description": "The title in the navbar"
   },
   "logo.alt": {
-    "message": "X'Indeler",
+    "message": "Xindeler",
     "description": "The alt text of navbar logo"
   },
   "item.label.Proyecto": {
