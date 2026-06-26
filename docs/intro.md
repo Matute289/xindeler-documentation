@@ -68,5 +68,6 @@ Los NPCs de Xindeler no siguen scripts fijos. Cada uno tiene una mente con valor
 
 ## Comunidad
 
+- **Sitio web** — [xindeler.greenmountain.dev](https://xindeler.greenmountain.dev)
 - **Discord** — [discord.gg/xindeler](https://discord.gg/xindeler)
 - **Wiki de jugadores** — [wiki.xindeler.greenmountain.dev](https://wiki.xindeler.greenmountain.dev)
