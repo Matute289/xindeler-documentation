@@ -120,11 +120,8 @@ Lógica que opera sobre un conjunto de componentes cada tick. Los sistemas se re
 
 ## V
 
-**Veloren**
-Engine open source de voxel RPG en Rust en el que se basa Xindeler. Xindeler es un fork que extiende Veloren con ORACLE, AURORA, y mecánicas de juego propias.
-
 **Voxygen**
-El cliente gráfico de Xindeler (nombre heredado de Veloren). Binario: `cargo run --bin voxygen`.
+El cliente gráfico de Xindeler. Binario: `cargo run --bin voxygen`.
 
 ---
 
