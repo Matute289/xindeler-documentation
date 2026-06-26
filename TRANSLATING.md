@@ -73,6 +73,10 @@ construcción."), add the English version:
 3. Translate `i18n/pt/docusaurus-theme-classic/navbar.json`, `footer.json`,
    and `i18n/pt/docusaurus-plugin-content-docs/current.json`.
 
+   > **Note:** The copyright year in `footer.json` must be bumped manually each year.
+   > Unlike the Spanish source (`docusaurus.config.ts` uses `new Date().getFullYear()`),
+   > the JSON translation file cannot contain JavaScript expressions.
+
 4. Add content translations under `i18n/pt/docusaurus-plugin-content-docs/current/`.
 
 ## Current translation coverage
@@ -90,3 +94,5 @@ construcción."), add the English version:
 | `cliente/` | ✅ | ⬜ | Pending content writing |
 | `apis/` | ✅ | ⬜ | Pending content writing |
 | `referencia/` | ✅ | ⬜ | Pending content writing |
+
+**Note:** ✅ = file exists; content may be placeholder — check before translating.
