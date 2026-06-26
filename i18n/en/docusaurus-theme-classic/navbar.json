@@ -1,0 +1,34 @@
+{
+  "title": {
+    "message": "X'Indeler Docs",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "X'Indeler",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Proyecto": {
+    "message": "Project",
+    "description": "Navbar item with label Proyecto"
+  },
+  "item.label.Sistemas": {
+    "message": "Systems",
+    "description": "Navbar item with label Sistemas"
+  },
+  "item.label.ORACLE": {
+    "message": "ORACLE",
+    "description": "Navbar item with label ORACLE"
+  },
+  "item.label.AURORA": {
+    "message": "AURORA",
+    "description": "Navbar item with label AURORA"
+  },
+  "item.label.Contribuir": {
+    "message": "Contribute",
+    "description": "Navbar item with label Contribuir"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

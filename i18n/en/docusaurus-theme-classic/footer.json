@@ -1,0 +1,54 @@
+{
+  "link.title.Docs": {
+    "message": "Docs",
+    "description": "The title of the footer links column with title=Docs in the footer"
+  },
+  "link.title.Sistemas": {
+    "message": "Systems",
+    "description": "The title of the footer links column with title=Sistemas in the footer"
+  },
+  "link.title.Comunidad": {
+    "message": "Community",
+    "description": "The title of the footer links column with title=Comunidad in the footer"
+  },
+  "link.item.label.Instalación local": {
+    "message": "Local Setup",
+    "description": "The label of footer link with label=Instalación local linking to /proyecto/instalacion-local"
+  },
+  "link.item.label.Arquitectura": {
+    "message": "Architecture",
+    "description": "The label of footer link with label=Arquitectura linking to /proyecto/arquitectura"
+  },
+  "link.item.label.Contribuir": {
+    "message": "Contribute",
+    "description": "The label of footer link with label=Contribuir linking to /contribucion/como-empezar"
+  },
+  "link.item.label.ORACLE": {
+    "message": "ORACLE",
+    "description": "The label of footer link with label=ORACLE linking to /oracle/intro"
+  },
+  "link.item.label.AURORA": {
+    "message": "AURORA",
+    "description": "The label of footer link with label=AURORA linking to /aurora/intro"
+  },
+  "link.item.label.Combate": {
+    "message": "Combat",
+    "description": "The label of footer link with label=Combate linking to /sistemas/combate"
+  },
+  "link.item.label.Discord": {
+    "message": "Discord",
+    "description": "The label of footer link with label=Discord linking to https://discord.gg/xindeler"
+  },
+  "link.item.label.Landing": {
+    "message": "Landing",
+    "description": "The label of footer link with label=Landing linking to https://xindeler.greenmountain.dev"
+  },
+  "link.item.label.Wiki": {
+    "message": "Wiki",
+    "description": "The label of footer link with label=Wiki linking to https://wiki.xindeler.greenmountain.dev"
+  },
+  "copyright": {
+    "message": "Copyright © 2026 Xindeler. Built with Docusaurus.",
+    "description": "The footer copyright"
+  }
+}
