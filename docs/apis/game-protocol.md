@@ -2,6 +2,6 @@
 sidebar_position: 1
 ---
 
-# Protocolo de Veloren
+# Protocolo de juego
 
 *Documentación en construcción.*

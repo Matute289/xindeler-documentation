@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Arquitectura
 
-Xindeler es un fork del engine Veloren. Sigue su arquitectura central y agrega los sistemas propios del juego (ORACLE, AURORA, FastAPI web) encima.
+Xindeler es un MMORPG de vóxeles en Rust con un cliente gráfico 3D, un servidor monolítico y los sistemas de IA propios del juego (ORACLE, AURORA) integrados.
 
 ## Vista general
 

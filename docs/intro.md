@@ -5,7 +5,7 @@ slug: /
 
 # Xindeler Docs
 
-**Xindeler** es un MMORPG de fantasía open source construido sobre el engine [Veloren](https://veloren.net/) en Rust. Esta es la documentación técnica — para developers, contributors, y diseñadores que quieren entender o contribuir al proyecto.
+**Xindeler** es un MMORPG de fantasía open source construido en Rust. Esta es la documentación técnica — para developers, contributors, y diseñadores que quieren entender o contribuir al proyecto.
 
 ---
 
@@ -60,7 +60,7 @@ Los NPCs de Xindeler no siguen scripts fijos. Cada uno tiene una mente con valor
 
 | Repo | Descripción |
 |------|-------------|
-| [`Matute289/xindeler`](https://github.com/Matute289/xindeler) | Engine del juego (Veloren fork) |
+| [`Matute289/xindeler`](https://github.com/Matute289/xindeler) | Engine del juego |
 | [`Matute289/xindeler-documentation`](https://github.com/Matute289/xindeler-documentation) | Este sitio |
 | [`Matute289/xindeler-wiki`](https://github.com/Matute289/xindeler-wiki) | Wiki para jugadores |
 
@@ -68,5 +68,6 @@ Los NPCs de Xindeler no siguen scripts fijos. Cada uno tiene una mente con valor
 
 ## Comunidad
 
+- **Sitio web** — [xindeler.greenmountain.dev](https://xindeler.greenmountain.dev)
 - **Discord** — [discord.gg/xindeler](https://discord.gg/xindeler)
 - **Wiki de jugadores** — [wiki.xindeler.greenmountain.dev](https://wiki.xindeler.greenmountain.dev)

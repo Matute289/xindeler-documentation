@@ -41,7 +41,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'APIs y Protocolos',
       items: [
-        'apis/veloren-protocol',
+        'apis/game-protocol',
         'apis/fastapi-web',
         'apis/admin-commands',
         'apis/telemetria',
