@@ -1,6 +1,6 @@
 # Translation Guide
 
-X'Indeler Docs is written in **Spanish (ES) first**. English translations are
+Xindeler Docs is written in **Spanish (ES) first**. English translations are
 added incrementally as the Spanish content matures.
 
 ## How Docusaurus i18n works here

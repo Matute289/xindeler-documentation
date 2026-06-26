@@ -3,7 +3,7 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: "X'Indeler Docs",
+  title: "Xindeler Docs",
   tagline: 'Technical documentation for the Xindeler MMORPG project',
   favicon: 'img/favicon.svg',
 
@@ -50,9 +50,9 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     navbar: {
-      title: "X'Indeler Docs",
+      title: "Xindeler Docs",
       logo: {
-        alt: "X'Indeler",
+        alt: "Xindeler",
         src: 'img/logo.svg',
         srcDark: 'img/logo.svg',
       },

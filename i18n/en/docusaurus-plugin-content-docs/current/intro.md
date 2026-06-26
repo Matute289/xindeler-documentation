@@ -3,6 +3,6 @@ sidebar_position: 1
 slug: /
 ---
 
-# Welcome to X'Indeler Docs
+# Welcome to Xindeler Docs
 
 *Documentation under construction.*
