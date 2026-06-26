@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: "X'Indeler Docs",
   tagline: 'Technical documentation for the Xindeler MMORPG project',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
 
   url: 'https://docs.xindeler.greenmountain.dev',
   baseUrl: '/',
@@ -17,8 +17,8 @@ const config: Config = {
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'es'],
+    defaultLocale: 'es',
+    locales: ['es', 'en'],
     localeConfigs: {
       en: { label: 'English', direction: 'ltr' },
       es: { label: 'Español', direction: 'ltr' },
