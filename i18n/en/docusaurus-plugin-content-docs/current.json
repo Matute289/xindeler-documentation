@@ -1,0 +1,42 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.projectSidebar.category.Proyecto": {
+    "message": "Project",
+    "description": "The label for category 'Proyecto' in sidebar 'projectSidebar'"
+  },
+  "sidebar.projectSidebar.category.Cliente": {
+    "message": "Client",
+    "description": "The label for category 'Cliente' in sidebar 'projectSidebar'"
+  },
+  "sidebar.projectSidebar.category.Servidor": {
+    "message": "Server",
+    "description": "The label for category 'Servidor' in sidebar 'projectSidebar'"
+  },
+  "sidebar.projectSidebar.category.APIs y Protocolos": {
+    "message": "APIs & Protocols",
+    "description": "The label for category 'APIs y Protocolos' in sidebar 'projectSidebar'"
+  },
+  "sidebar.projectSidebar.category.Referencia": {
+    "message": "Reference",
+    "description": "The label for category 'Referencia' in sidebar 'projectSidebar'"
+  },
+  "sidebar.systemsSidebar.category.Sistemas de Juego": {
+    "message": "Game Systems",
+    "description": "The label for category 'Sistemas de Juego' in sidebar 'systemsSidebar'"
+  },
+  "sidebar.oracleSidebar.category.ORACLE — World Director": {
+    "message": "ORACLE — World Director",
+    "description": "The label for category 'ORACLE — World Director' in sidebar 'oracleSidebar'"
+  },
+  "sidebar.auroraSidebar.category.AURORA — NPC AI": {
+    "message": "AURORA — NPC AI",
+    "description": "The label for category 'AURORA — NPC AI' in sidebar 'auroraSidebar'"
+  },
+  "sidebar.contributeSidebar.category.Contribución": {
+    "message": "Contribution",
+    "description": "The label for category 'Contribución' in sidebar 'contributeSidebar'"
+  }
+}
