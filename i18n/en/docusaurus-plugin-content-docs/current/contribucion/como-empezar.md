@@ -19,7 +19,7 @@ Guide for making your first contribution to Xindeler.
 Fork the repo on GitHub and clone it:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/xindeler
+git clone https://github.com/TU_USUARIO/xindeler
 cd xindeler
 git remote add upstream https://github.com/Matute289/xindeler
 ```
@@ -46,7 +46,7 @@ git push origin main
 Never work directly on `main`. Create a branch from `main`:
 
 ```bash
-git checkout -b feat/descriptive-name
+git checkout -b feat/nombre-descriptivo
 ```
 
 Prefix conventions:
@@ -70,7 +70,7 @@ cargo clippy       # verify it passes the linter
 cargo test         # run the tests
 
 git add src/...    # add only the relevant files
-git commit -m "feat: concise description of the change"
+git commit -m "feat: descripción concisa del cambio"
 ```
 
 The commit message format is `type: description in lowercase`. See [Git Flow](./git-flow) for details.
@@ -80,7 +80,7 @@ The commit message format is `type: description in lowercase`. See [Git Flow](./
 ## 5. Open the PR
 
 ```bash
-git push origin feat/descriptive-name
+git push origin feat/nombre-descriptivo
 ```
 
 Then open the PR on GitHub against `main` of the upstream repo (`Matute289/xindeler`). In the description, include:

@@ -65,7 +65,7 @@ A few conventions specific to this codebase:
 - ECS systems end in `_sys` or `System`: `CombatSystem`, `ai_sys.rs`
 - ECS components end in `Comp` or are simple nouns: `Health`, `Energy`, `Pos`
 - RON files use the asset's name in `snake_case`: `iron_sword.ron`
-- Server events use `ServerEvent::Variant`
+- Server events use `ServerEvent::Variante`
 
 ---
 

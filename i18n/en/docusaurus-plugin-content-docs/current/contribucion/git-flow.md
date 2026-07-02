@@ -25,7 +25,7 @@ There are no `develop`, `staging`, or `release` branches — the model is simpli
 ```
 main ──────────────────────────────────────────► main
          │                              ▲
-         └─── feat/new-ability ─────┘
+         └─── feat/nueva-habilidad ─────┘
               (incremental commits)
 ```
 
@@ -91,9 +91,9 @@ git rebase upstream/main
 Resolve conflicts file by file, then:
 
 ```bash
-git add <resolved-file>
+git add <archivo-resuelto>
 git rebase --continue
-git push origin feat/your-branch --force-with-lease
+git push origin feat/tu-branch --force-with-lease
 ```
 
 Use `--force-with-lease` instead of `--force` — it fails if someone else has pushed to your branch in the meantime.
