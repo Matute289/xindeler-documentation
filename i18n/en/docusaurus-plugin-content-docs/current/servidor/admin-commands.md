@@ -110,7 +110,7 @@ Commands are classified by permission level. On a production server, only regist
 
 ```toml
 # server_settings.ron
-admins: ["player_name_1", "player_name_2"],
+admins: ["nombre_jugador_1", "nombre_jugador_2"],
 ```
 
 ORACLE and AURORA commands require `Admin` permission level or higher.
