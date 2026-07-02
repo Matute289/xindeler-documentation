@@ -34,7 +34,7 @@ To use admin commands, your account needs admin permissions on the server. On a 
 |---------|-------------|
 | `/time` | View the current world time |
 | `/time set <value>` | Change the time (`noon`, `midnight`, `dawn`, `dusk`, or a number 0.0–1.0) |
-| `/weather <type>` | Change the weather (`clear`, `rain`, `snow`, `storm`) |
+| `/weather <tipo>` | Change the weather (`clear`, `rain`, `snow`, `storm`) |
 | `/lightning` | Summon a lightning strike at the current position |
 
 ---
@@ -75,7 +75,7 @@ Example:
 | `/oracle status` | Current state of the world director |
 | `/oracle pause` | Pause event generation |
 | `/oracle resume` | Resume event generation |
-| `/oracle event <type>` | Force an event manually |
+| `/oracle event <tipo>` | Force an event manually |
 | `/oracle arc list` | View active narrative arcs |
 | `/oracle arc <id>` | View details of a narrative arc |
 | `/oracle arc advance <id>` | Advance an arc to the next phase |
@@ -89,7 +89,7 @@ Example:
 | `/aurora npc <id> status` | View an NPC's current mind |
 | `/aurora npc <id> memory` | View the NPC's memories |
 | `/aurora npc <id> relationships` | View the NPC's social network |
-| `/aurora npc <id> force_action <action>` | Force a specific action |
+| `/aurora npc <id> force_action <acción>` | Force a specific action |
 
 ---
 

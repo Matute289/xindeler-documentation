@@ -74,7 +74,7 @@ ORACLE is controlled from the server via admin chat commands:
 ```
 /oracle status              — current state of the director
 /oracle pause               — pause event generation
-/oracle event <type>        — force an event manually
+/oracle event <tipo>        — force an event manually
 /oracle arc list            — view active narrative arcs
 ```
 
