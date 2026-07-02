@@ -12,6 +12,17 @@ const LOCALE_FLAGS: Record<string, string> = {
   en: '🇺🇸',
 };
 
+// Docusaurus's `pathname://` prefix is an internal convention meant to be
+// interpreted only by its own <Link> component (which strips it and does
+// client-side routing). It is NOT a real URL scheme: assigning a string
+// like `pathname:///en/` directly to `window.location.href` (or using it
+// as a plain <a href>) is silently ignored by the browser since the
+// protocol is unrecognized. Strip it before using the URL for real
+// navigation.
+function toNavigableUrl(url: string): string {
+  return url.startsWith('pathname://') ? url.slice('pathname://'.length) : url;
+}
+
 function useLocaleDropdownUtils() {
   const {
     siteConfig,
@@ -85,7 +96,7 @@ export default function LocaleDropdownNavbarItem({
             typeof locale === 'string' ? (
               <li key={locale}>
                 <a
-                  href={utils.getURL(locale, {queryString})}
+                  href={toNavigableUrl(utils.getURL(locale, {queryString}))}
                   className={`menu__link ${locale === currentLocale ? 'menu__link--active' : ''}`}
                 >
                   <span className={styles.flag}>{LOCALE_FLAGS[locale] ?? '🏳️'}</span>{' '}
@@ -124,7 +135,7 @@ export default function LocaleDropdownNavbarItem({
               key={locale}
               type="button"
               onClick={() => {
-                window.location.href = utils.getURL(locale, {queryString});
+                window.location.href = toNavigableUrl(utils.getURL(locale, {queryString}));
               }}
               className={`${styles.dropdownItem} ${locale === currentLocale ? styles.dropdownItemActive : ''}`}
             >
