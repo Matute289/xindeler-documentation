@@ -1,7 +1,12 @@
 import React, {type ReactNode, useState, useRef, useEffect} from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {useAlternatePageUtils} from '@docusaurus/theme-common/internal';
-import {mergeSearchStrings, useHistorySelector} from '@docusaurus/theme-common';
+import {
+  mergeSearchStrings,
+  useHistorySelector,
+  useCollapsible,
+  Collapsible,
+} from '@docusaurus/theme-common';
 import {translate} from '@docusaurus/Translate';
 import type {Props} from '@theme/NavbarItem/LocaleDropdownNavbarItem';
 
@@ -22,6 +27,8 @@ const LOCALE_FLAGS: Record<string, string> = {
 function toNavigableUrl(url: string): string {
   return url.startsWith('pathname://') ? url.slice('pathname://'.length) : url;
 }
+
+type LocaleDropdownUtils = ReturnType<typeof useLocaleDropdownUtils>;
 
 function useLocaleDropdownUtils() {
   const {
@@ -58,12 +65,7 @@ function useLocaleDropdownUtils() {
   };
 }
 
-export default function LocaleDropdownNavbarItem({
-  mobile,
-  dropdownItemsBefore = [],
-  dropdownItemsAfter = [],
-  queryString,
-}: Props): ReactNode {
+export default function LocaleDropdownNavbarItem({mobile, queryString}: Props): ReactNode {
   const utils = useLocaleDropdownUtils();
   const {
     i18n: {currentLocale, locales},
@@ -80,35 +82,10 @@ export default function LocaleDropdownNavbarItem({
   }, []);
 
   if (mobile) {
-    // Mobile sidebar: keep it simple, stock-like list with flags added.
-    const items = [...dropdownItemsBefore, ...locales, ...dropdownItemsAfter];
-    return (
-      <li className={styles.mobileWrapper}>
-        <div className="menu__link menu__link--sublist">
-          {translate({
-            message: 'Languages',
-            id: 'theme.navbar.mobileLanguageDropdown.label',
-            description: 'The label for the mobile language switcher dropdown',
-          })}
-        </div>
-        <ul>
-          {items.map((locale) =>
-            typeof locale === 'string' ? (
-              <li key={locale}>
-                <a
-                  href={toNavigableUrl(utils.getURL(locale, {queryString}))}
-                  className={`menu__link ${locale === currentLocale ? 'menu__link--active' : ''}`}
-                >
-                  <span className={styles.flag}>{LOCALE_FLAGS[locale] ?? '🏳️'}</span>{' '}
-                  {utils.getLabel(locale)}
-                  {locale === currentLocale && <span className={styles.mate}>🧉</span>}
-                </a>
-              </li>
-            ) : null,
-          )}
-        </ul>
-      </li>
-    );
+    // Mobile sidebar: a single expandable button (matches Docusaurus's own
+    // collapsible dropdown pattern) instead of listing every locale flat —
+    // this is the only way that scales once more languages are added.
+    return <MobileLocaleDropdown utils={utils} currentLocale={currentLocale} locales={locales} queryString={queryString} />;
   }
 
   return (
@@ -147,5 +124,79 @@ export default function LocaleDropdownNavbarItem({
         </div>
       )}
     </div>
+  );
+}
+
+function MobileLocaleDropdown({
+  utils,
+  currentLocale,
+  locales,
+  queryString,
+}: {
+  utils: LocaleDropdownUtils;
+  currentLocale: string;
+  locales: readonly string[];
+  queryString: string | undefined;
+}): ReactNode {
+  // Mirrors Docusaurus's own DropdownNavbarItem/Mobile collapse pattern
+  // (same `useCollapsible`/`Collapsible` + `menu__list-item--collapsed` /
+  // `menu__caret` classes) so the built-in theme CSS handles the caret
+  // rotation and expand/collapse animation for free.
+  const {collapsed, toggleCollapsed} = useCollapsible({initialState: true});
+
+  return (
+    <li className={`menu__list-item ${collapsed ? 'menu__list-item--collapsed' : ''}`}>
+      <div className="menu__list-item-collapsible">
+        <a
+          href="#"
+          role="button"
+          className="menu__link menu__link--sublist menu__link--sublist-caret"
+          onClick={(e) => {
+            e.preventDefault();
+            toggleCollapsed();
+          }}
+        >
+          <span className={styles.flag}>{LOCALE_FLAGS[currentLocale] ?? '🏳️'}</span>{' '}
+          {currentLocale.toUpperCase()}
+        </a>
+        <button
+          type="button"
+          className="clean-btn menu__caret"
+          aria-label={
+            collapsed
+              ? translate({
+                  message: 'Expand the language switcher',
+                  id: 'theme.navbar.mobileLanguageDropdown.expandAriaLabel',
+                  description: 'The ARIA label for expanding the mobile language switcher',
+                })
+              : translate({
+                  message: 'Collapse the language switcher',
+                  id: 'theme.navbar.mobileLanguageDropdown.collapseAriaLabel',
+                  description: 'The ARIA label for collapsing the mobile language switcher',
+                })
+          }
+          aria-expanded={!collapsed}
+          onClick={(e) => {
+            e.preventDefault();
+            toggleCollapsed();
+          }}
+        />
+      </div>
+
+      <Collapsible lazy as="ul" className="menu__list" collapsed={collapsed}>
+        {locales.map((locale) => (
+          <li key={locale}>
+            <a
+              href={toNavigableUrl(utils.getURL(locale, {queryString}))}
+              className={`menu__link ${locale === currentLocale ? 'menu__link--active' : ''}`}
+            >
+              <span className={styles.flag}>{LOCALE_FLAGS[locale] ?? '🏳️'}</span>{' '}
+              {utils.getLabel(locale)}
+              {locale === currentLocale && <span className={styles.mate}>🧉</span>}
+            </a>
+          </li>
+        ))}
+      </Collapsible>
+    </li>
   );
 }
