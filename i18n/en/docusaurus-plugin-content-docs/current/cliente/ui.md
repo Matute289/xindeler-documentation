@@ -2,6 +2,6 @@
 sidebar_position: 3
 ---
 
-# Client UI
+# User Interface
 
 *Documentation under construction.*

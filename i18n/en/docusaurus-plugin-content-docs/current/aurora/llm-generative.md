@@ -2,6 +2,6 @@
 sidebar_position: 9
 ---
 
-# LLM Generative
+# LLM Generation
 
 *Documentation under construction.*
