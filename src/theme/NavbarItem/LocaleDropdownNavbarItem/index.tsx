@@ -150,7 +150,7 @@ function MobileLocaleDropdown({
         <a
           href="#"
           role="button"
-          className="menu__link menu__link--sublist menu__link--sublist-caret"
+          className="menu__link menu__link--sublist"
           onClick={(e) => {
             e.preventDefault();
             toggleCollapsed();
