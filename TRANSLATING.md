@@ -12,6 +12,28 @@ added incrementally as the Spanish content matures.
 If a page has no English translation, Docusaurus shows the Spanish version as
 fallback. This is intentional — partial coverage is fine.
 
+## Testing locally
+
+`npm start` (`docusaurus start`) only serves **one locale at a time** — by
+default, `es`. If you navigate to `/en/...` paths against a plain `npm start`
+dev server, every route 404s, including the homepage — this is a Docusaurus
+dev-server limitation, not a bug in the content.
+
+To preview English locally, do one of:
+
+```bash
+# Option A: dev server scoped to English
+npm start -- --locale en
+
+# Option B: full production build (all locales, matches what actually deploys)
+npm run build
+npm run serve
+```
+
+Only Option B reproduces the real fallback-to-Spanish behavior for
+untranslated pages — the single-locale dev server can't demonstrate that at
+all, since it never loads the other locale's content.
+
 ## Adding a new English translation
 
 When a Spanish page in `docs/` has real content (not just "Documentación en
@@ -83,16 +105,16 @@ construcción."), add the English version:
 
 | Section | ES | EN | Notes |
 |---------|----|----|-------|
-| UI strings (navbar/footer) | ✅ | ✅ | Complete |
-| `intro.md` | ✅ | ✅ | |
-| `proyecto/` | ✅ | ⬜ | Pending content writing |
-| `contribucion/` | ✅ | ⬜ | Pending content writing |
-| `sistemas/` | ✅ | ⬜ | Pending content writing |
-| `oracle/` | ✅ | ⬜ | Pending content writing |
-| `aurora/` | ✅ | ⬜ | Pending content writing |
-| `servidor/` | ✅ | ⬜ | Pending content writing |
-| `cliente/` | ✅ | ⬜ | Pending content writing |
-| `apis/` | ✅ | ⬜ | Pending content writing |
-| `referencia/` | ✅ | ⬜ | Pending content writing |
+| UI strings (navbar/footer/sidebar) | ✅ | ✅ | Complete |
+| `intro.md` (homepage) | ✅ | ✅ | Complete |
+| `proyecto/` | ✅ | ✅ | Complete |
+| `cliente/` | ⬜ (stubs) | ✅ (stub translations) | ES content itself is still placeholder — see backlog |
+| `servidor/` | ✅ (partial) | ✅ | 3 real pages translated, 3 stub pages translated |
+| `apis/` | ✅ (partial) | ✅ | `game-protocol` translated, 3 stub pages translated |
+| `sistemas/` | ⬜ (stubs) | ✅ (stub translations) | ES content itself is still placeholder — see backlog |
+| `oracle/` | ✅ (partial) | ✅ | `intro` translated, 10 stub pages translated |
+| `aurora/` | ✅ (partial) | ✅ | `intro` translated, 9 stub pages translated |
+| `contribucion/` | ✅ (partial) | ✅ | 7 real pages translated, `testing` stub translated |
+| `referencia/` | ✅ | ✅ | Complete |
 
-**Note:** ✅ = file exists; content may be placeholder — check before translating.
+**Note:** "stubs" means the Spanish source itself is still `*Documentación en construcción.*` — translating those to an equally short EN stub keeps both locales in sync, but the real writing work is tracked in `.backlog/backlog.md`, not here. When a stub's ES content is written for real, its EN translation must be updated in the same PR (the CI guard in `scripts/check-i18n-coverage.mjs` only checks a file *exists*, not that it's a substantive translation — full-page prose changes still need a human translation pass).
