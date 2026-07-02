@@ -62,6 +62,11 @@ const config: Config = {
         { type: 'docSidebar', sidebarId: 'oracleSidebar', position: 'left', label: 'ORACLE' },
         { type: 'docSidebar', sidebarId: 'auroraSidebar', position: 'left', label: 'AURORA' },
         { type: 'docSidebar', sidebarId: 'contributeSidebar', position: 'left', label: 'Contribuir' },
+        {
+          href: 'https://xindeler.com',
+          label: 'Xindeler',
+          position: 'right',
+        },
         { type: 'localeDropdown', position: 'right' },
         {
           href: 'https://github.com/Matute289/xindeler',
