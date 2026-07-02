@@ -10,13 +10,13 @@ Xindeler is a voxel MMORPG in Rust with a 3D graphical client, a monolithic serv
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│                    Cliente (Voxygen)                  │
+│                    Client (Voxygen)                   │
 │         wgpu renderer · egui UI · audio              │
 └──────────────────────┬──────────────────────────────┘
-                       │ Protocolo Xindeler (QUIC/Quinn)
-                       │ puerto 14004
+                       │ Xindeler Protocol (QUIC/Quinn)
+                       │ port 14004
 ┌──────────────────────▼──────────────────────────────┐
-│               Servidor (proceso único)               │
+│                Server (single process)               │
 │                                                      │
 │  ┌──────────┐  ┌─────────┐  ┌────────────────────┐  │
 │  │  ECS     │  │  rtsim  │  │   ORACLE / AURORA  │  │
@@ -24,14 +24,14 @@ Xindeler is a voxel MMORPG in Rust with a 3D graphical client, a monolithic serv
 │  │          │  │ sim     │  │    + NPC AI)        │  │
 │  └──────────┘  └─────────┘  └────────────────────┘  │
 │                                                      │
-│  Persistencia: rtsim/data.dat (MessagePack)          │
-│  Eventos:      chronicle/*.jsonl                     │
+│  Persistence: rtsim/data.dat (MessagePack)           │
+│  Events:      chronicle/*.jsonl                      │
 └──────────────────────────────────────────────────────┘
-                       │ REST (puerto 8010)
+                       │ REST (port 8010)
 ┌──────────────────────▼──────────────────────────────┐
-│              FastAPI (proceso separado)              │
+│              FastAPI (separate process)              │
 │         /api/waitlist · /api/contribute              │
-│         Persistencia: CSV en VPS                     │
+│         Persistence: CSV on VPS                      │
 └─────────────────────────────────────────────────────┘
 ```
 
