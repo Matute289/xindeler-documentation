@@ -83,10 +83,61 @@
   font-size: 0.7rem;
 }
 
-.mobileWrapper .flag {
-  margin-right: 0.4rem;
+/* Mobile: a compact pill (like the desktop trigger) instead of a full-width
+   menu row — flag+code+caret don't need the whole sidebar width, and this
+   keeps the caret and the mate marker close to their labels. */
+.mobileWrapper {
+  padding: 0 var(--ifm-menu-link-padding-horizontal);
 }
 
-.mobileWrapper .mate {
-  margin-left: 0.4rem;
+.mobilePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.35rem 0;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: var(--ifm-menu-color);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.mobileCaret {
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+}
+
+.mobileCaretOpen {
+  transform: rotate(90deg);
+}
+
+.mobileSubList {
+  list-style: none;
+  margin: 0.25rem 0 0.5rem 0.25rem;
+  padding: 0;
+}
+
+.mobileDropdownItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  margin: 0.15rem 0;
+  border-radius: 6px;
+  color: var(--ifm-menu-color);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.mobileDropdownItem:hover {
+  background: var(--ifm-menu-color-background-hover);
+  text-decoration: none;
+  color: var(--ifm-menu-color);
+}
+
+.mateInline {
+  margin-left: 0.25rem;
+  font-size: 0.7rem;
 }

@@ -138,61 +138,49 @@ function MobileLocaleDropdown({
   locales: readonly string[];
   queryString: string | undefined;
 }): ReactNode {
-  // Mirrors Docusaurus's own DropdownNavbarItem/Mobile collapse pattern
-  // (same `useCollapsible`/`Collapsible` + `menu__list-item--collapsed` /
-  // `menu__caret` classes) so the built-in theme CSS handles the caret
-  // rotation and expand/collapse animation for free.
+  // Uses the same useCollapsible/Collapsible mechanism as Docusaurus's own
+  // stock mobile dropdown (JS-driven height animation, no CSS class
+  // dependency — see Collapsible's source), but styled as a compact pill
+  // instead of a full-width menu row, since flag+code+caret don't need the
+  // whole sidebar width.
   const {collapsed, toggleCollapsed} = useCollapsible({initialState: true});
 
   return (
-    <li className={`menu__list-item ${collapsed ? 'menu__list-item--collapsed' : ''}`}>
-      <div className="menu__list-item-collapsible">
-        <a
-          href="#"
-          role="button"
-          className="menu__link menu__link--sublist"
-          onClick={(e) => {
-            e.preventDefault();
-            toggleCollapsed();
-          }}
-        >
-          <span className={styles.flag}>{LOCALE_FLAGS[currentLocale] ?? '🏳️'}</span>{' '}
-          {currentLocale.toUpperCase()}
-        </a>
-        <button
-          type="button"
-          className="clean-btn menu__caret"
-          aria-label={
-            collapsed
-              ? translate({
-                  message: 'Expand the language switcher',
-                  id: 'theme.navbar.mobileLanguageDropdown.expandAriaLabel',
-                  description: 'The ARIA label for expanding the mobile language switcher',
-                })
-              : translate({
-                  message: 'Collapse the language switcher',
-                  id: 'theme.navbar.mobileLanguageDropdown.collapseAriaLabel',
-                  description: 'The ARIA label for collapsing the mobile language switcher',
-                })
-          }
-          aria-expanded={!collapsed}
-          onClick={(e) => {
-            e.preventDefault();
-            toggleCollapsed();
-          }}
-        />
-      </div>
+    <li className={styles.mobileWrapper}>
+      <button
+        type="button"
+        className={styles.mobilePill}
+        aria-label={
+          collapsed
+            ? translate({
+                message: 'Expand the language switcher',
+                id: 'theme.navbar.mobileLanguageDropdown.expandAriaLabel',
+                description: 'The ARIA label for expanding the mobile language switcher',
+              })
+            : translate({
+                message: 'Collapse the language switcher',
+                id: 'theme.navbar.mobileLanguageDropdown.collapseAriaLabel',
+                description: 'The ARIA label for collapsing the mobile language switcher',
+              })
+        }
+        aria-expanded={!collapsed}
+        onClick={toggleCollapsed}
+      >
+        <span className={styles.flag}>{LOCALE_FLAGS[currentLocale] ?? '🏳️'}</span>
+        <span className={styles.code}>{currentLocale.toUpperCase()}</span>
+        <span className={`${styles.mobileCaret} ${!collapsed ? styles.mobileCaretOpen : ''}`}>›</span>
+      </button>
 
-      <Collapsible lazy as="ul" className="menu__list" collapsed={collapsed}>
+      <Collapsible lazy as="ul" className={styles.mobileSubList} collapsed={collapsed}>
         {locales.map((locale) => (
           <li key={locale}>
             <a
               href={toNavigableUrl(utils.getURL(locale, {queryString}))}
-              className={`menu__link ${locale === currentLocale ? 'menu__link--active' : ''}`}
+              className={`${styles.mobileDropdownItem} ${locale === currentLocale ? styles.dropdownItemActive : ''}`}
             >
-              <span className={styles.flag}>{LOCALE_FLAGS[locale] ?? '🏳️'}</span>{' '}
-              {utils.getLabel(locale)}
-              {locale === currentLocale && <span className={styles.mate}>🧉</span>}
+              <span className={styles.flag}>{LOCALE_FLAGS[locale] ?? '🏳️'}</span>
+              <span>{utils.getLabel(locale)}</span>
+              {locale === currentLocale && <span className={styles.mateInline}>🧉</span>}
             </a>
           </li>
         ))}
