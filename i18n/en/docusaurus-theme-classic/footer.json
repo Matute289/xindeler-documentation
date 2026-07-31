@@ -41,11 +41,11 @@
   },
   "link.item.label.Landing": {
     "message": "Landing",
-    "description": "The label of footer link with label=Landing linking to https://xindeler.greenmountain.dev"
+    "description": "The label of footer link with label=Landing linking to https://xindeler.com"
   },
   "link.item.label.Wiki": {
     "message": "Wiki",
-    "description": "The label of footer link with label=Wiki linking to https://wiki.xindeler.greenmountain.dev"
+    "description": "The label of footer link with label=Wiki linking to https://wiki.xindeler.com"
   },
   "copyright": {
     "message": "Copyright © 2026 Xindeler. Built with Docusaurus.",

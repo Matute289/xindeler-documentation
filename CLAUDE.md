@@ -17,15 +17,15 @@ No test suite. Build success = valid. Run `npm run build` before opening a PR.
 
 **Xindeler** is an open-source fantasy MMORPG built in Rust.
 
-This repo (`Matute289/xindeler-documentation`) is the **technical documentation portal** — for developers, contributors, designers, and DevOps. Live at: `docs.xindeler.greenmountain.dev`.
+This repo (`Matute289/xindeler-documentation`) is the **technical documentation portal** — for developers, contributors, designers, and DevOps. Live at: `docs.xindeler.com`.
 
 ### Related repos
 
 | Repo | Visibility | Purpose |
 |------|-----------|---------|
 | `Matute289/xindeler-design` | **Private** | Source of truth for all lore, game design specs, ORACLE/AURORA specs |
-| `Matute289/xindeler-web-landing` | Public | Landing page (`xindeler.greenmountain.dev`) |
-| `Matute289/xindeler-wiki` | Public | Player wiki (`wiki.xindeler.greenmountain.dev`) |
+| `Matute289/xindeler-web-landing` | Public | Landing page (`xindeler.com`) |
+| `Matute289/xindeler-wiki` | Public | Player wiki (`wiki.xindeler.com`) |
 | `Matute289/xindeler-new-horizon` | Public | Game engine |
 | `Matute289/xindeler-documentation` | Public | This repo — technical docs portal |
 
@@ -217,7 +217,7 @@ The server is **one Rust process**, not microservices. There is no Login Server,
 
 - **Server:** `ssh -i ~/.ssh/id_ed25519 mgrinberg@216.238.126.97`
 - **Deploy path:** `/srv/xindeler/docs/public`
-- **Subdomain:** `docs.xindeler.greenmountain.dev` (live — certbot configured)
+- **Subdomain:** `docs.xindeler.com` (live — certbot configured)
 - **Reference:** See `xindeler-web-landing/deploy.yml` and the wiki deploy for the rsync pattern
 
 ### GitHub Secrets needed
@@ -265,4 +265,4 @@ Full detail in `.backlog/backlog.md` and `.backlog/tasks/`.
 
 ## Landing Page Integration
 
-`docs.xindeler.greenmountain.dev` is live. When Matías confirms it's working correctly, add a link in `xindeler-web-landing` → `src/components/CommunitySection.jsx` (where the Discord, Wiki, and other community links live).
+`docs.xindeler.com` is live. When Matías confirms it's working correctly, add a link in `xindeler-web-landing` → `src/components/CommunitySection.jsx` (where the Discord, Wiki, and other community links live).
