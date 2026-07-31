@@ -19,9 +19,9 @@ Guía para hacer tu primera contribución a Xindeler.
 Hacé fork del repo en GitHub y clonalo:
 
 ```bash
-git clone https://github.com/TU_USUARIO/xindeler
-cd xindeler
-git remote add upstream https://github.com/Matute289/xindeler
+git clone https://github.com/TU_USUARIO/xindeler-new-horizon
+cd xindeler-new-horizon
+git remote add upstream https://github.com/Matute289/xindeler-new-horizon
 ```
 
 El remote `upstream` te permite traer cambios del repo oficial.
@@ -83,7 +83,7 @@ El formato del mensaje de commit es `tipo: descripción en minúsculas`. Ver [Gi
 git push origin feat/nombre-descriptivo
 ```
 
-Luego abrí el PR en GitHub contra `main` del repo upstream (`Matute289/xindeler`). En la descripción incluí:
+Luego abrí el PR en GitHub contra `main` del repo upstream (`Matute289/xindeler-new-horizon`). En la descripción incluí:
 
 - Qué cambia y por qué
 - Cómo probarlo
