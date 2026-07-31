@@ -68,6 +68,6 @@ Xindeler's NPCs don't follow fixed scripts. Each one has a mind with its own val
 
 ## Community
 
-- **Website** — [xindeler.greenmountain.dev](https://xindeler.greenmountain.dev)
+- **Website** — [xindeler.com](https://xindeler.com)
 - **Discord** — [discord.gg/xindeler](https://discord.gg/xindeler)
-- **Player wiki** — [wiki.xindeler.greenmountain.dev](https://wiki.xindeler.greenmountain.dev)
+- **Player wiki** — [wiki.xindeler.com](https://wiki.xindeler.com)

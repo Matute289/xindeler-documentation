@@ -7,7 +7,7 @@ const config: Config = {
   tagline: 'Technical documentation for the Xindeler MMORPG project',
   favicon: 'img/favicon.svg',
 
-  url: 'https://docs.xindeler.greenmountain.dev',
+  url: 'https://docs.xindeler.com',
   baseUrl: '/',
 
   organizationName: 'Matute289',
@@ -98,8 +98,8 @@ const config: Config = {
           title: 'Comunidad',
           items: [
             { label: 'Discord', href: 'https://discord.gg/xindeler' },
-            { label: 'Landing', href: 'https://xindeler.greenmountain.dev' },
-            { label: 'Wiki', href: 'https://wiki.xindeler.greenmountain.dev' },
+            { label: 'Landing', href: 'https://xindeler.com' },
+            { label: 'Wiki', href: 'https://wiki.xindeler.com' },
           ],
         },
       ],
