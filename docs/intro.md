@@ -27,8 +27,8 @@ slug: /
 ¿Querés contribuir? El camino más corto:
 
 ```bash
-git clone https://github.com/Matute289/xindeler
-cd xindeler
+git clone https://github.com/Matute289/xindeler-new-horizon
+cd xindeler-new-horizon
 cargo build
 cargo run --bin xindeler-server   # en una terminal
 cargo run --bin voxygen            # en otra terminal
@@ -60,7 +60,7 @@ Los NPCs de Xindeler no siguen scripts fijos. Cada uno tiene una mente con valor
 
 | Repo | Descripción |
 |------|-------------|
-| [`Matute289/xindeler`](https://github.com/Matute289/xindeler) | Engine del juego |
+| [`Matute289/xindeler-new-horizon`](https://github.com/Matute289/xindeler-new-horizon) | Engine del juego |
 | [`Matute289/xindeler-documentation`](https://github.com/Matute289/xindeler-documentation) | Este sitio |
 | [`Matute289/xindeler-wiki`](https://github.com/Matute289/xindeler-wiki) | Wiki para jugadores |
 

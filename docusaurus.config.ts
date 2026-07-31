@@ -69,7 +69,7 @@ const config: Config = {
         },
         { type: 'localeDropdown', position: 'right' },
         {
-          href: 'https://github.com/Matute289/xindeler',
+          href: 'https://github.com/Matute289/xindeler-new-horizon',
           label: 'GitHub',
           position: 'right',
         },

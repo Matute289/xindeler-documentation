@@ -42,8 +42,8 @@ El cliente usa **wgpu** y requiere una GPU con soporte para Vulkan (Linux/Window
 ## Clonar el repositorio
 
 ```bash
-git clone https://github.com/Matute289/xindeler
-cd xindeler
+git clone https://github.com/Matute289/xindeler-new-horizon
+cd xindeler-new-horizon
 ```
 
 ---

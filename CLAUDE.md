@@ -26,7 +26,7 @@ This repo (`Matute289/xindeler-documentation`) is the **technical documentation 
 | `Matute289/xindeler-design` | **Private** | Source of truth for all lore, game design specs, ORACLE/AURORA specs |
 | `Matute289/xindeler-web-landing` | Public | Landing page (`xindeler.greenmountain.dev`) |
 | `Matute289/xindeler-wiki` | Public | Player wiki (`wiki.xindeler.greenmountain.dev`) |
-| `Matute289/xindeler` | Public | Game engine |
+| `Matute289/xindeler-new-horizon` | Public | Game engine |
 | `Matute289/xindeler-documentation` | Public | This repo — technical docs portal |
 
 **ORACLE and AURORA specs live in `xindeler-design`.** Before writing docs for those systems, read:
