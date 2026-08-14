@@ -53,7 +53,7 @@
 |---|-------|--------------|--------|
 | 017 | Cliente: voxygen, render, UI, audio | [017-cliente.md](tasks/017-cliente.md) | `[-]` Diferido — baja prioridad para contributors iniciales |
 | 018 | Servidor: world-simulation, admin-commands, arquitectura | [018-servidor.md](tasks/018-servidor.md) | `[x]` — arquitectura + world-simulation + admin-commands completos |
-| 019 | APIs: game-protocol, fastapi-web, telemetría | [019-apis.md](tasks/019-apis.md) | `[x]` — game-protocol completo. fastapi-web y telemetría pendientes de baja prioridad |
+| 019 | APIs: game-protocol, fastapi-web, telemetría | [019-apis.md](tasks/019-apis.md) | `[x]` — game-protocol y fastapi-web completos. telemetría pendiente de baja prioridad |
 | 020 | Referencia: asset-formats, ecs-components, glosario | [020-referencia.md](tasks/020-referencia.md) | `[x]` |
 
 ## Pendiente (sin sprint asignado)
@@ -64,4 +64,5 @@
 | P02 | Link a docs en la landing page (`xindeler-web-landing/src/components/CommunitySection.jsx`) | `[ ]` — esperar confirmación de que el sitio está estable |
 | P03 | EN translations de todas las páginas de contenido (hoy solo intro.md tiene traducción EN) | `[ ]` — español-first funciona como fallback |
 | P04 | servidor/combat.md, servidor/economia.md | `[ ]` — cuando el sistema sea final |
-| P05 | apis/fastapi-web.md, apis/telemetria.md | `[ ]` — baja prioridad |
+| P05 | apis/telemetria.md | `[ ]` — baja prioridad |
+| P06 | apis/admin-commands.md sigue siendo el stub de 7 líneas; el contenido real de comandos de admin ya vive en servidor/admin-commands.md (tarea 018) | `[ ]` — decidir si se completa con framing de "referencia de API" o se redirige/elimina para no duplicar servidor/admin-commands.md |
