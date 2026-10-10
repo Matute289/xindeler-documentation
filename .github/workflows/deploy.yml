@@ -31,6 +31,6 @@ jobs:
         env:
           VPS_HOST: ${{ secrets.VPS_HOST }}
         run: |
-          rsync -rltvz --no-owner --no-group --chmod=D2775,F664 \
+          rsync -rltvzO --no-owner --no-group --chmod=D2775,F664 \
             -e "ssh -i $HOME/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes" \
             build/ "deploy@${VPS_HOST}:"
