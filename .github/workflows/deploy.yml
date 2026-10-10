@@ -15,12 +15,22 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build
+      # Deploy through the restricted `deploy` user (MyServerVPS Stage 8): this key can only rsync
+      # (write-only) into this site's directory on the server and cannot open a shell.
+      - name: Prepare SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_SSH_KEY_SITE_DOCS }}
+          KNOWN_HOSTS: ${{ vars.VPS_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+
       - name: Deploy to VPS
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          source: 'build/'
-          target: ${{ secrets.VPS_DEPLOY_PATH }}
-          strip_components: 1
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+        run: |
+          rsync -rltvz --no-owner --no-group --chmod=D2775,F664 \
+            -e "ssh -i $HOME/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes" \
+            build/ "deploy@${VPS_HOST}:"
