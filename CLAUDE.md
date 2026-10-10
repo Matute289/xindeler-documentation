@@ -215,7 +215,7 @@ The server is **one Rust process**, not microservices. There is no Login Server,
 
 ## VPS / Deploy
 
-- **Server:** `ssh -i ~/.ssh/id_ed25519 mgrinberg@216.238.126.97`
+- **Server:** `ssh -i ~/.ssh/id_ed25519 mgrinberg@greenmountain.dev`
 - **Deploy path:** `/srv/xindeler/docs/public`
 - **Subdomain:** `docs.xindeler.com` (live — certbot configured)
 - **Reference:** See `xindeler-web-landing/deploy.yml` and the wiki deploy for the rsync pattern
